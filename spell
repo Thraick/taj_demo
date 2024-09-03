@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        input, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text to Speech</h1>
+    <p>Enter text and click "Speak" to hear it.</p>
+    
+    <input type="text" id="text-input" placeholder="Enter text here" />
+    <br/>
+    <button onclick="speakText()">Speak</button>
+
+    <script>
+        function speakText() {
+            const textInput = document.getElementById('text-input').value;
+
+            if (textInput) {
+                const speech = new SpeechSynthesisUtterance(textInput);
+                window.speechSynthesis.speak(speech);
+            } else {
+                alert("Please enter some text!");
+            }
+        }
+    </script>
+</body>
+</html>
