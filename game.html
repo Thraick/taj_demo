@@ -42,156 +42,57 @@
     <main class="p-6">
         <div class="max-w-xl mx-auto bg-white p-4 rounded-md shadow-md">
             <h1 class="text-2xl font-bold mb-4">Roulette Number Tracker</h1>
-            <div class="grid grid-cols-6 gap-4 mb-4">
+            <div class="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-4 mb-4">
                 <!-- Number buttons -->
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('0')">0</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('00')">00</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('1')">1</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('2')">2</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('3')">3</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('4')">4</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('5')">5</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('6')">6</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('7')">7</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('8')">8</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('9')">9</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('10')">10</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('11')">11</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('12')">12</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('13')">13</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('14')">14</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('15')">15</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('16')">16</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('17')">17</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('18')">18</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('19')">19</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('20')">20</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('21')">21</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('22')">22</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('23')">23</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('24')">24</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('25')">25</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('26')">26</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('27')">27</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('28')">28</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('29')">29</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('30')">30</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('31')">31</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('32')">32</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('33')">33</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('34')">34</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('35')">35</button>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('36')">36</button>
-            </div>
-            <button onclick="downloadData()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-md">Download Data</button>
-            <input type="file" id="file-input" class="mb-4" />
-            <button onclick="uploadData()" class="mb-4 bg-yellow-500 text-white px-4 py-2 rounded-md">Upload Data</button>
-            <div id="number-list" class="space-y-2">
-                <!-- Numbers will be displayed here -->
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('0')">0</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('00')">00</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('1')">1</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('2')">2</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('3')">3</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('4')">4</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('5')">5</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('6')">6</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('7')">7</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('8')">8</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('9')">9</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('10')">10</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('11')">11</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('12')">12</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('13')">13</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('14')">14</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('15')">15</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('16')">16</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('17')">17</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('18')">18</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('19')">19</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('20')">20</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('21')">21</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('22')">22</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('23')">23</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('24')">24</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('25')">25</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('26')">26</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('27')">27</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('28')">28</button>
+                <button class="bg-blue-500 text-white px-2 sm:px-4 py-2 rounded-md" onclick="setNumber('29')">29</button>
             </div>
         </div>
     </main>
 
     <script>
-        const STORAGE_KEY = 'rouletteNumbers';
-        let lastKey = '';
-
         function toggleProfileDropdown() {
             const dropdown = document.getElementById('profile-dropdown');
-            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
-        }
-
-        function viewMenu(event) {
-            event.preventDefault();
-            alert('View Menu clicked!');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         }
 
         function logout(event) {
             event.preventDefault();
-            alert('Logged out!');
-        }
-
-        function loadData() {
-            const data = localStorage.getItem(STORAGE_KEY);
-            return data ? JSON.parse(data) : {};
-        }
-
-        function saveData(data) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-        }
-
-        function updateNumberList(data) {
-            const numberList = document.getElementById('number-list');
-            numberList.innerHTML = '';  // Clear the existing list
-
-            if (lastKey && data[lastKey]) {
-                const listItem = document.createElement('div');
-                listItem.classList.add('p-2', 'border', 'rounded-md', 'bg-gray-50', 'mb-2');
-                listItem.innerHTML = `<strong>${lastKey}</strong>: ${data[lastKey].join(', ')}`;
-                numberList.appendChild(listItem);
-            } else {
-                const listItem = document.createElement('div');
-                listItem.classList.add('p-2', 'border', 'rounded-md', 'bg-gray-50', 'mb-2');
-                listItem.innerHTML = `<strong>No Data</strong>: No numbers available for the current key.`;
-                numberList.appendChild(listItem);
-            }
+            alert('Logged out successfully.');
         }
 
         function setNumber(number) {
-            const data = loadData();
-
-            if (lastKey) {
-                if (data[lastKey] && data[lastKey].length === 5) {
-                    data[lastKey].shift();  // Remove the oldest number if we have 5 numbers already
-                }
-                if (!data[lastKey]) data[lastKey] = [];
-                data[lastKey].push(number);
-            }
-
-            if (!data[number]) {
-                data[number] = [];
-            }
-
-            lastKey = number;
-            saveData(data);
-            updateNumberList(data);
+            alert('You selected number ' + number);
         }
-
-        function downloadData() {
-            const data = loadData();
-            const blob = new Blob([JSON.stringify(data, null, 4)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'data.json';
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        function uploadData() {
-            const fileInput = document.getElementById('file-input');
-            const file = fileInput.files[0];
-
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                try {
-                    const data = JSON.parse(event.target.result);
-                    saveData(data);
-                    updateNumberList(data);
-                } catch (error) {
-                    alert('Invalid JSON file');
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        // Load existing data on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const data = loadData();
-            updateNumberList(data);
-        });
     </script>
 </body>
 </html>
