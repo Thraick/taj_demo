@@ -135,7 +135,7 @@
             const data = loadData();
 
             if (lastKey) {
-                if (data[lastKey] && data[lastKey].length === 5) {
+                if (data[lastKey] && data[lastKey].length === 10) {
                     data[lastKey].shift();  // Remove the oldest number if we have 5 numbers already
                 }
                 if (!data[lastKey]) data[lastKey] = [];
