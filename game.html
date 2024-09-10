@@ -57,6 +57,7 @@
 
     <script>
         const STORAGE_KEY = 'rouletteNumbers';
+        let lastKey = '';
 
         function toggleProfileDropdown() {
             const dropdown = document.getElementById('profile-dropdown');
@@ -85,14 +86,15 @@
         function updateNumberList(data) {
             const numberList = document.getElementById('number-list');
             numberList.innerHTML = '';  // Clear the existing list
-
-            for (const [key, numbers] of Object.entries(data)) {
+        
+            if (lastKey && data[lastKey]) {
                 const listItem = document.createElement('div');
                 listItem.classList.add('p-2', 'border', 'rounded-md', 'bg-gray-50', 'mb-2');
-                listItem.innerHTML = `<strong>${key}</strong>: ${numbers.join(', ')}`;
+                listItem.innerHTML = `<strong>${lastKey}</strong>: ${data[lastKey].join(', ')}`;
                 numberList.appendChild(listItem);
             }
         }
+
 
         document.getElementById('number-form').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -105,16 +107,19 @@
 
             const data = loadData();
 
+            if (lastKey) {
+                if (data[lastKey] && data[lastKey].length === 5) {
+                    data[lastKey].shift();  // Remove the oldest number if we have 5 numbers already
+                }
+                if (!data[lastKey]) data[lastKey] = [];
+                data[lastKey].push(number);
+            }
+
             if (!data[number]) {
                 data[number] = [];
             }
 
-            if (data[number].length === 5) {
-                data[number].shift();  // Remove the oldest number if we have 5 numbers already
-            }
-
-            data[number].push(number);
-
+            lastKey = number;
             saveData(data);
             updateNumberList(data);
         });
