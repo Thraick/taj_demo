@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #profile-dropdown {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header>
+        <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <a href="./index" class="flex items-center">
+                    <img src="./assets/logo2.png" class="mr-3 h-6 sm:h-9" alt="Synergy Source Logo" />
+                    <span class="self-center text-sm font-semibold whitespace-nowrap dark:text-white">Demo</span>
+                </a>
+                <div class="flex items-center lg:order-2" id="auth-links">
+                    <a href="/" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2" id="spell-link">Spell</a>
+                    <a href="./login" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2" id="login-link">Log in</a>
+                    <a href="./signup" class="text-white bg-[#1d4ed8] hover:bg-[#1e40af] focus:ring-4 focus:ring-[#93c5fd] font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-[#2563eb] dark:hover:bg-[#1d4ed8] focus:outline-none dark:focus:ring-[#1e40af]" id="register-link">Register</a>
+                    <div class="relative inline-block text-left" id="profile-menu">
+                        <button id="profile-button" type="button" class="text-gray-700 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600" onclick="toggleProfileDropdown()">Profile</button>
+                        <div id="profile-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg dark:bg-gray-700 z-50">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-white" onclick="viewMenu(event)">Menu</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 dark:text-white">Settings</a>
+                            <a href="#" id="logout-button" class="block px-4 py-2 text-sm text-gray-700 dark:text-white" onclick="logout(event)">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="p-6">
+        <div class="max-w-xl mx-auto bg-white p-4 rounded-md shadow-md">
+            <h1 class="text-2xl font-bold mb-4">Roulette Number Tracker</h1>
+            <form id="number-form" class="mb-4">
+                <input type="text" id="number-input" class="border rounded-md px-4 py-2 w-full" placeholder="Enter a number" />
+                <button type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
+            </form>
+            <div id="number-list" class="space-y-2">
+                <!-- Numbers will be displayed here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profile-dropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function viewMenu(event) {
+            event.preventDefault();
+            alert('View Menu clicked!');
+        }
+
+        function logout(event) {
+            event.preventDefault();
+            alert('Logged out!');
+        }
+
+        // Form submission handling
+        document.getElementById('number-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const numberInput = document.getElementById('number-input');
+            const number = numberInput.value.trim();
+            numberInput.value = '';
+
+            if (!number) return;
+
+            // Send the number to the backend or handle it here
+            fetch('/path/to/your/api/endpoint', {  // Replace with your endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ number }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response
+                updateNumberList(data);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        function updateNumberList(data) {
+            const numberList = document.getElementById('number-list');
+            numberList.innerHTML = '';  // Clear the existing list
+
+            for (const [key, numbers] of Object.entries(data)) {
+                const listItem = document.createElement('div');
+                listItem.classList.add('p-2', 'border', 'rounded-md', 'bg-gray-50', 'mb-2');
+                listItem.innerHTML = `<strong>${key}</strong>: ${numbers.join(', ')}`;
+                numberList.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>
