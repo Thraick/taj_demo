@@ -42,10 +42,47 @@
     <main class="p-6">
         <div class="max-w-xl mx-auto bg-white p-4 rounded-md shadow-md">
             <h1 class="text-2xl font-bold mb-4">Roulette Number Tracker</h1>
-            <form id="number-form" class="mb-4">
-                <input type="text" id="number-input" class="border rounded-md px-4 py-2 w-full" placeholder="Enter a number" />
-                <button type="submit" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">Submit</button>
-            </form>
+            <div class="grid grid-cols-6 gap-4 mb-4">
+                <!-- Number buttons -->
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('0')">0</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('00')">00</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('1')">1</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('2')">2</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('3')">3</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('4')">4</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('5')">5</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('6')">6</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('7')">7</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('8')">8</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('9')">9</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('10')">10</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('11')">11</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('12')">12</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('13')">13</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('14')">14</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('15')">15</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('16')">16</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('17')">17</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('18')">18</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('19')">19</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('20')">20</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('21')">21</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('22')">22</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('23')">23</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('24')">24</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('25')">25</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('26')">26</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('27')">27</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('28')">28</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('29')">29</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('30')">30</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('31')">31</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('32')">32</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('33')">33</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('34')">34</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('35')">35</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md" onclick="setNumber('36')">36</button>
+            </div>
             <button onclick="downloadData()" class="mb-4 bg-green-500 text-white px-4 py-2 rounded-md">Download Data</button>
             <input type="file" id="file-input" class="mb-4" />
             <button onclick="uploadData()" class="mb-4 bg-yellow-500 text-white px-4 py-2 rounded-md">Upload Data</button>
@@ -100,15 +137,7 @@
             }
         }
 
-        document.getElementById('number-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const numberInput = document.getElementById('number-input');
-            const number = numberInput.value.trim();
-            numberInput.value = '';
-
-            if (!number) return;
-
+        function setNumber(number) {
             const data = loadData();
 
             if (lastKey) {
@@ -126,7 +155,7 @@
             lastKey = number;
             saveData(data);
             updateNumberList(data);
-        });
+        }
 
         function downloadData() {
             const data = loadData();
