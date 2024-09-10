@@ -86,15 +86,19 @@
         function updateNumberList(data) {
             const numberList = document.getElementById('number-list');
             numberList.innerHTML = '';  // Clear the existing list
-        
+
             if (lastKey && data[lastKey]) {
                 const listItem = document.createElement('div');
                 listItem.classList.add('p-2', 'border', 'rounded-md', 'bg-gray-50', 'mb-2');
                 listItem.innerHTML = `<strong>${lastKey}</strong>: ${data[lastKey].join(', ')}`;
                 numberList.appendChild(listItem);
+            } else {
+                const listItem = document.createElement('div');
+                listItem.classList.add('p-2', 'border', 'rounded-md', 'bg-gray-50', 'mb-2');
+                listItem.innerHTML = `<strong>No Data</strong>: No numbers available for the current key.`;
+                numberList.appendChild(listItem);
             }
         }
-
 
         document.getElementById('number-form').addEventListener('submit', function(event) {
             event.preventDefault();
